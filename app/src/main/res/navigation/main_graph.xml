@@ -13,7 +13,7 @@
         <action
             android:id="@+id/action_mainFragment_to_profileFragment"
             app:destination="@id/profileFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
+            app:enterAnim="@anim/nav_default_exit_anim"
             app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
@@ -34,19 +34,19 @@
         tools:layout="@layout/fragment_settings">
         <action
             android:id="@+id/action_settingsFragment_to_analyticFragment2"
-            app:destination="@id/analyticFragment2" />
+            app:destination="@id/analyticFragment" />
     </fragment>
     <fragment
-        android:id="@+id/analyticFragment2"
+        android:id="@+id/analyticFragment"
         android:name="ru.itis.summerpractice24.AnalyticFragment"
         android:label="fragment_analytic"
         tools:layout="@layout/fragment_analytic" >
         <action
             android:id="@+id/action_analyticFragment2_to_backpackFragment2"
-            app:destination="@id/backpackFragment2" />
+            app:destination="@id/backpackFragment" />
     </fragment>
     <fragment
-        android:id="@+id/backpackFragment2"
+        android:id="@+id/backpackFragment"
         android:name="ru.itis.summerpractice24.BackpackFragment"
         android:label="fragment_backpack"
         tools:layout="@layout/fragment_backpack" />
