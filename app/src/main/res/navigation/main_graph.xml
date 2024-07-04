@@ -35,6 +35,9 @@
         <action
             android:id="@+id/action_settingsFragment_to_analyticFragment2"
             app:destination="@id/analyticFragment" />
+        <action
+            android:id="@+id/action_settingsFragment_to_cityInformationFragment"
+            app:destination="@id/cityInformationFragment" />
     </fragment>
     <fragment
         android:id="@+id/analyticFragment"
@@ -50,4 +53,8 @@
         android:name="ru.itis.summerpractice24.BackpackFragment"
         android:label="fragment_backpack"
         tools:layout="@layout/fragment_backpack" />
+    <fragment
+        android:id="@+id/cityInformationFragment"
+        android:name="ru.itis.summerpractice24.CityInformationFragment"
+        android:label="CityInformationFragment" />
 </navigation>

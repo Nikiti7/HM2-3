@@ -7,4 +7,6 @@
     <string name="settings_screen">Galary</string>
     <string name="analytic_screen">Analytic</string>
     <string name="backpack_screen">Backpack</string>
+    <string name="email">Email</string>
+    <string name="result">Result</string>
 </resources>

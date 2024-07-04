@@ -21,7 +21,10 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         val email = arguments?.getString(ARG_EMAIL) ?: "ERROR"
 
         binding?.run {
-            tvTitle.text = "${tvTitle.text} + $email"
+            tvTitle.text = StringBuilder()
+                .append(tvTitle.text)
+                .append(email)
+                .toString()
 
             tvTitle.setOnClickListener {
                 counter++

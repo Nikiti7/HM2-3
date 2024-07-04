@@ -27,12 +27,6 @@ class MainFragmentActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        super.onBackPressed()
-
-        controller?.navigateUp()
-    }
-
     override fun onDestroy() {
         super.onDestroy()
         binding = null
