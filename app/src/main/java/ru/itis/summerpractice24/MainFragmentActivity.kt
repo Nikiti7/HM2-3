@@ -25,6 +25,17 @@ class MainFragmentActivity : AppCompatActivity() {
         controller?.let { navController ->
             binding?.bottomNavigation?.setupWithNavController(navController)
         }
+
+//        val cities = CityRepository.getCityById()
+//        val adapter = CityAdapter() { city ->
+//            val bundle = CityInformationFragment.createBundle(
+//                city.id, city.name, city.url, city.country, city.longDescription
+//            )
+//            val fragment = CityInformationFragment().apply {
+//                arguments = bundle
+//            }
+//
+//        }
     }
 
     override fun onDestroy() {
