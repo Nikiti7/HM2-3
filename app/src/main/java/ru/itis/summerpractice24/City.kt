@@ -4,5 +4,6 @@ data class City(
     val id: Int,
     val name: String,
     val country: String,
-    val url: String,
+    val longDescription: String,
+    val url: String
 )
