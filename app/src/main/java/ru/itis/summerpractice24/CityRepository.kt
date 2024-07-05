@@ -171,10 +171,4 @@ object CityRepository {
             url = "https://cdn.forbes.ru/files/photo_galleries/photo-1526455858803-300d96d74f5e.jpg__1563897322__21414.webp"
         )
     )
-
-//    fun getCityById(): City? {
-//        return cities.find {
-//            it.id == id
-//        }
-//     }
 }

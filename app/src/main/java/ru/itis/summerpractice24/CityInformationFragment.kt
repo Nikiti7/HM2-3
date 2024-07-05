@@ -3,6 +3,7 @@ package ru.itis.summerpractice24
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import ru.itis.summerpractice24.databinding.FragmentCityInfoBinding
 
@@ -12,21 +13,22 @@ class CityInformationFragment : Fragment(R.layout.fragment_city_info) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentCityInfoBinding.bind(view)
 
         val id = arguments?.getInt(ID) ?: 0
-        val name = arguments?.getInt(NAME) ?: ""
+        val name = arguments?.getString(NAME) ?: ""
         val url = arguments?.getString(URL) ?: ""
-        val country = arguments?.getInt(COUNTRY) ?: ""
+        val country = arguments?.getString(COUNTRY) ?: ""
         val longDescription = arguments?.getString(INFORMATION) ?: ""
 
-        binding?.let {
-            it.textViewName.text = name.toString()
-            it.textViewCountry.text = country.toString()
-            it.textViewLongDescription.text = longDescription
-            Glide.with(this).load(url).into(it.imageView)
+        with(binding!!) {
+            textViewName.text = name
+            textViewCountry.text = country
+            textViewLongDescription.text = longDescription
+            Glide.with(requireContext()).load(url).into(imageView)
 
-            it.imageViewBack.setOnClickListener {
-                requireActivity().onBackPressed()
+            imageViewBack.setOnClickListener {
+                findNavController().popBackStack()
             }
         }
     }
