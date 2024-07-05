@@ -34,8 +34,18 @@ class MainFragmentActivity : AppCompatActivity() {
 //            val fragment = CityInformationFragment().apply {
 //                arguments = bundle
 //            }
+//        findNavController().popBackStack() {
+//            setOnclickListener()
+//        }
 //
 //        }
+    }
+
+    @Deprecated("Deprecated in Java")
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        controller?.navigateUp()
     }
 
     override fun onDestroy() {

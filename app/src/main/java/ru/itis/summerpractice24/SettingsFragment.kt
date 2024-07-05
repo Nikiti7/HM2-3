@@ -3,11 +3,10 @@ package ru.itis.summerpractice24
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.google.android.material.snackbar.Snackbar
 import ru.itis.summerpractice24.databinding.FragmentSettingsBinding
-import ru.itis.summerpractice24.utils.showSnackbar
 
 class SettingsFragment : Fragment(R.layout.fragment_settings) {
 
@@ -31,24 +30,25 @@ class SettingsFragment : Fragment(R.layout.fragment_settings) {
             adapter = CityAdapter(
                 list = CityRepository.cities,
                 glide = Glide.with(this@SettingsFragment),
-                onClick = {
-
-                    root.showSnackbar(it.url, duration = Snackbar.LENGTH_LONG)
-
-//                    Snackbar.make(root, it.url, Snackbar.LENGTH_LONG).show()
-                }
+                onClick = ::onItemClicked
             )
 
-            rvCity.adapter = adapter
+            val layoutManager = LinearLayoutManager(requireContext())
 
-//          по-умолчанию линерлайоутманагер строит вертикальный список
-            rvCity.layoutManager = LinearLayoutManager(requireContext())
-//            rvCity.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-//            rvCity.layoutManager = GridLayoutManager(requireContext(), 2)
+            rvCity.layoutManager = layoutManager
+            rvCity.adapter = adapter
 
             tvTitle.setOnClickListener {
                 adapter?.updateDataset(CityRepository.citiesNew)
             }
         }
     }
+
+    private fun onItemClicked(city: City) {
+        findNavController().navigate(
+            R.id.action_settingsFragment_to_cityInformationFragment,
+            CityInformationFragment.createBundle(city.id, city.name, city.country,city.longDescription, city.url)
+        )
+    }
+
 }
