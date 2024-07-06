@@ -36,23 +36,23 @@ class CityInformationFragment : Fragment(R.layout.fragment_city_info) {
     companion object {
         private const val ID = "id"
         private const val NAME = "name"
-        private const val URL = "url"
         private const val COUNTRY = "country"
         private const val INFORMATION = "information"
+        private const val URL = "url"
 
         fun createBundle(
             id: Int,
             name: String,
-            url: String,
             country: String,
-            information: String
+            information: String,
+            url: String
         ): Bundle {
             val bundle = Bundle()
             bundle.putInt(ID, id)
             bundle.putString(NAME, name)
-            bundle.putString(URL, url)
             bundle.putString(COUNTRY, country)
             bundle.putString(INFORMATION, information)
+            bundle.putString(URL, url)
             return bundle
         }
     }
